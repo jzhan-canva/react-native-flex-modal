@@ -1,8 +1,13 @@
 # react-native-flex-modal
----
 Before I start this modal, I have used modal from react-native, react-native-modal, and react-native-modalbox. But none of these modals has all the featus I need, so I created this modal
 
+## Installtion
+
+I have release it on npm, you may install this modal by
+`npm install --save git+https://github.com/zhantx/react-native-flex-modal.git`
+
 ## Comparision
+
 ||react-native-modalbox|react-native-flex-modal|react-native-modal|
 |-|-|-|-|
 |Tap outside to close|yes|yes|not yet [but close](https://github.com/react-native-community/react-native-modal/issues/11)|
@@ -13,6 +18,7 @@ Before I start this modal, I have used modal from react-native, react-native-mod
 |Animation|slide from top or bottom|slide in from any position along with fading and zooming|powered by [react-native-animatable](https://github.com/oblador/react-native-animatable)|
 
 ## Properties
+
 |Prop|Type|Default|Description|
 |-|-|-|-|
 |onCloes|func||Callback function, called modal is closed and animation is finished|
