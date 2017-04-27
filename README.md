@@ -44,3 +44,85 @@ Before I start this modal, I have used modal from react-native, react-native-mod
 ## Method
 
 I recommend use static method `open()` and `close()` to control this modal, this modal has tapToClose feature, when tapToClose is `true`, the modal will close when tapping outisde despite the the value of `isOpen`.
+
+## Demo
+
+![demo](https://raw.githubusercontent.com/zhantx/react-native-flex-modal/docs/animation.gif)
+```javascript
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity
+} from 'react-native';
+import Modal from 'react-native-flex-modal'
+
+export default class Awesome extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.ios.js
+        </Text>
+        <Text style={styles.instructions}>
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
+        </Text>
+        <TouchableOpacity onPress={()=>this.modal.open()}>
+            <Text>Open</Text>
+            {/*
+                This modal doesn't require to be inside a full screen view
+                Can be anywhere in code
+            */}
+            <Modal
+              ref={(modal)=>{this.modal=modal}}
+              positionX={0.3}
+              positionY={0.5}
+              timeIn={500}
+              fadeIn
+              scaleIn={0.3}
+              scaleOut={2}
+              positionXIn={200}
+              positionYIn={-200}
+              positionYOut={200}
+              swipeable
+            >
+              <View style={{ height: 100, width: 200, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center' }}>
+                <Text>
+                  I am the modal
+                </Text>
+              </View>
+            </Modal>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('Awesome', () => Awesome);
+
+```
