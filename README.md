@@ -1,5 +1,5 @@
 # react-native-flex-modal
-Before I start this modal, I have used modal from react-native, react-native-modal, and react-native-modalbox. But none of these modals has all the featus I need, so I created this modal
+Before I start this modal, I have used modal from react-native, react-native-modal, and react-native-modalbox. But none of these modals has all the features I needed, so I created this modal
 
 ## Installtion
 
