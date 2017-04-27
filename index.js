@@ -256,6 +256,7 @@ export default class MyModal extends React.Component {
               style={[{
                 opacity: opacity,
                 transform: [{ translateY: this.state.pan.y }, { translateX: this.state.pan.x }, { scale: scale }],
+                backgroundColor: 'white'
               }, this.props.containerSytle]}
             >
               {
