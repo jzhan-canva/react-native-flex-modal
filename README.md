@@ -47,7 +47,6 @@ I recommend use static method `open()` and `close()` to control this modal, this
 
 ## Demo
 
-![demo](https://raw.githubusercontent.com/zhantx/react-native-flex-modal/docs/animation.gif)
 ```javascript
 import React, { Component } from 'react';
 import {
@@ -126,3 +125,7 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('Awesome', () => Awesome);
 
 ```
+![demo](https://raw.githubusercontent.com/zhantx/react-native-flex-modal/docs/animation.gif)
+`positionX` is 0.3 so the modal is on the left, `timeIn` is `500` to slow down the animation, I didn't set `timeOut` so it will be the same as `timeIn`. `scaleIn` is 0.3 so the modal is zooming in while opening.
+
+`positionX` and `positionY` are pretty handy if you wanna create a popover, you can set the position of modal based on button's position(use `measure`)
