@@ -13,7 +13,7 @@ I have release it on npm, you may install this modal by
 |Tap outside to close|yes|yes|not yet [but close](https://github.com/react-native-community/react-native-modal/issues/11)|
 |Swipe To Close|yes|yes|no|
 |Position|top, center, or bottom|anywhere|by changing style|
-|Control|static method or jsx prop|static method or jsx prop|jsx prop|
+|Control|methods or jsx prop|methods or jsx prop|jsx prop|
 |Where to use this component|has to be insisidede a full screen view (correct me if I'm wrong)|anywhere in jsx tree|anywhere in jsx tree|
 |Animation|slide from top or bottom|slide in from any position along with fading and zooming|powered by [react-native-animatable](https://github.com/oblador/react-native-animatable)|
 
@@ -49,7 +49,7 @@ I have release it on npm, you may install this modal by
 
 ## Method
 
-I recommend use static method `open()` and `close()` to control this modal, this modal has tapToClose feature, when tapToClose is `true`, the modal will close when tapping outisde despite the the value of `isOpen`.
+I recommend use methods `open()` and `close()` to control this modal, this modal has tapToClose feature, when tapToClose is `true`, the modal will close when tapping outisde despite the the value of `isOpen`.
 
 ## Demo
 
