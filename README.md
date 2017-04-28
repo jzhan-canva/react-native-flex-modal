@@ -3,7 +3,8 @@ Before I start this modal, I have used modal from react-native, react-native-mod
 
 ## Installtion
 
-I have release it on npm, you may install this modal by
+I haven't release it on npm yet, you may install this modal by
+
 `npm install --save git+https://github.com/zhantx/react-native-flex-modal.git`
 
 ## Comparision
