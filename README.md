@@ -40,8 +40,8 @@ I haven't release it on npm yet, you may install this modal by
 |tapToClose|bool|true|set to `false` if you don't want the modal to close when user tap outside the modal|
 |backToClose|bool|true|set to `false` if you don't want the modal to close when user click back button(Android only)|
 |swipeable|bool|false|make the modal swipeable(don't use scrollView in modal if it's swipeable)|
-|swipeRangeX|array|[null,null]|horizontal range of the modal swipeable area,[-50,50] means the modal can only swipe to 50 points left or right, [0,0] means the modal can't be swipe horizontally, [null,null] means no limits horizontally|
-|swipeRangeY|array|[null,null]|vertical range of the modal swipeable area,[-50,50] means the modal can only swipe to 50 points up or down, [0,0] means the modal can't be swipe vertically, [null,null] means no limits vertically|
+|swipeRangeX|array|[null,null]|horizontal range of the modal swipeable area,[-50,50] means the modal can only swipe 50 points to left or right, [0,0] means the modal can't be swipe horizontally, [null,null] means no limits horizontally|
+|swipeRangeY|array|[null,null]|vertical range of the modal swipeable area,[-50,50] means the modal can only swipe 50 points to up or down, [0,0] means the modal can't be swipe vertically, [null,null] means no limits vertically|
 |swipeThresholdX|array|[-50,50]|once the modal is dragged and released outside this threshold, the modal will close, [null,null] means no threshold horizontally|
 |swipeThresholdY|array|[-50,50]|once the modal is dragged and released outside this threshold, the modal will close, [null,null] means no threshold vertically|
 |inertia|bool|true|if the modal is closed by swiping, set to `true` will let modal keeps moving on that direction, `false` will let modal return to its designated position(positionXOut, positionYOut)|
