@@ -47,7 +47,7 @@ export default class MyModal extends React.Component {
     Animated.event([null, {
       dx: this.state.pan.x,
       dy: this.state.pan.y
-    }], { useNativeDriver: true })(evt, output);
+    }])(evt, output);
   }
   onPanResponderRelease(evt, state) {
     if (!this.state.isFinished) return;
