@@ -79,7 +79,6 @@ export default class MyModal extends React.Component {
           x: 0,
           y: 0
         },
-        useNativeDriver: true
       }
     ).start();
   }
@@ -110,7 +109,6 @@ export default class MyModal extends React.Component {
           },
           easing: Easing.ease,
           duration: this.props.timeIn,
-          useNativeDriver: true
         }
       ).start();
       Animated.timing(
@@ -119,7 +117,6 @@ export default class MyModal extends React.Component {
           toValue: 1,
           easing: Easing.ease,
           duration: this.props.timeIn,
-          useNativeDriver: true
         }
       ).start(() => {
         this.setState({ isFinished: true }, () => {
@@ -156,7 +153,6 @@ export default class MyModal extends React.Component {
           },
           easing: Easing.ease,
           duration: duration,
-          useNativeDriver: true
         }
       ).start();
     } else {
@@ -177,7 +173,6 @@ export default class MyModal extends React.Component {
           y: toY
         },
         duration: duration,
-        useNativeDriver: true
       };
       Animated.spring(
         this.state.pan,
@@ -191,7 +186,6 @@ export default class MyModal extends React.Component {
         toValue: 2,
         easing: Easing.ease,
         duration: this.props.timeOut === null ? this.props.timeIn : this.props.timeOut,
-        useNativeDriver: true
       }
     ).start(() => {
       this.setState({
