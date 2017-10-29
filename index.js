@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { View, Modal, TouchableWithoutFeedback, Animated, Easing, PanResponder, Dimensions } from 'react-native';
 
 export default class MyModal extends React.Component {
