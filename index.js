@@ -96,6 +96,7 @@ export default class MyModal extends React.Component {
         {
           toValue: 1,
           duration: this.props.timeIn,
+          useNativeDriver: true
         }
       ).start();
       this.state.pan.setValue({
@@ -142,6 +143,7 @@ export default class MyModal extends React.Component {
       {
         toValue: 0,
         duration: this.props.timeOut === null ? this.props.timeIn : this.props.timeOut,
+        useNativeDriver: true
       }
     ).start();
     const duration = this.props.timeOut === null ? this.props.timeIn : this.props.timeOut;
@@ -205,13 +207,15 @@ export default class MyModal extends React.Component {
           vy: 0
         }
       });
-      this.state.pan.setValue({
-        x: 0,
-        y: 0
-      });
-      this.state.easingValue.setValue(0);
 
       if (this.props.onCloes) this.props.onCloes();
+      setTimeout(()=>{
+        this.state.pan.setValue({
+          x: 0,
+          y: 0
+        });
+        this.state.easingValue.setValue(0);
+      }, 20)
     });
   }
 
@@ -222,10 +226,10 @@ export default class MyModal extends React.Component {
   render() {
     const positionX = (this.props.positionX <= 1 && this.props.positionX >= 0) ? this.props.positionX : 0.5;
     const positionY = (this.props.positionY <= 1 && this.props.positionY >= 0) ? this.props.positionY : 0.5;
-    const backgroundColor = this.state.backOpacity.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['rgba(0, 0, 0, 0)', `rgba(0, 0, 0, ${this.props.backOpacity})`]
-    });
+    // const backgroundColor = this.state.backOpacity.interpolate({
+    //   inputRange: [0, 1],
+    //   outputRange: ['rgba(0, 0, 0, 0)', `rgba(0, 0, 0, ${this.props.backOpacity})`]
+    // });
     const scale = this.state.easingValue.interpolate({
       inputRange: [0, 1, 2],
       outputRange: [this.props.scaleIn, 1, this.props.scaleOut === null ? this.props.scaleIn : this.props.scaleOut]
@@ -241,12 +245,22 @@ export default class MyModal extends React.Component {
         visible={this.state.isOpen}
         onRequestClose={this.backPressed}
       >
-        <Animated.View
+        <View
           style={{
             flex: 1,
-            backgroundColor: backgroundColor
           }}
         >
+          <Animated.View
+            style={{
+              position:'absolute',
+              top:0,
+              right:0,
+              bottom:0,
+              left:0,
+              backgroundColor:'black',
+              opacity: this.state.backOpacity
+            }}
+          />
           <TouchableWithoutFeedback
             onPress={this.tapped}
           >
@@ -281,7 +295,7 @@ export default class MyModal extends React.Component {
           >
             <View style={{ flex: 1 - positionY }} />
           </TouchableWithoutFeedback>
-        </Animated.View>
+        </View>
       </Modal>
     );
   }
