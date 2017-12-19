@@ -87,6 +87,11 @@ export default class MyModal extends React.Component {
 
   open() {
     if (!this.state.isFinished || this.state.isOpen) return;
+    this.state.pan.setValue({
+      x: this.props.positionXIn,
+      y: this.props.positionYIn
+    });
+    this.state.easingValue.setValue(0);
     this.setState({
       isOpen: true,
       isFinished: false
@@ -99,10 +104,6 @@ export default class MyModal extends React.Component {
           useNativeDriver: true
         }
       ).start();
-      this.state.pan.setValue({
-        x: this.props.positionXIn,
-        y: this.props.positionYIn
-      });
       Animated.timing(
         this.state.pan,
         {
@@ -209,13 +210,6 @@ export default class MyModal extends React.Component {
       });
 
       if (this.props.onCloes) this.props.onCloes();
-      setTimeout(()=>{
-        this.state.pan.setValue({
-          x: 0,
-          y: 0
-        });
-        this.state.easingValue.setValue(0);
-      }, 20)
     });
   }
 
@@ -238,6 +232,7 @@ export default class MyModal extends React.Component {
       inputRange: [0, 1, 2],
       outputRange: [this.props.fadeIn ? 0 : 1, 1, (this.props.fadeOut === null ? this.props.fadeIn : this.props.fadeOut) ? 0 : 1]
     });
+    if(!this.state.isOpen) return null
     return (
       <Modal
         animationType={'none'}
@@ -258,7 +253,10 @@ export default class MyModal extends React.Component {
               bottom:0,
               left:0,
               backgroundColor:'black',
-              opacity: this.state.backOpacity
+              opacity: this.state.backOpacity.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, this.props.backOpacity]
+              })
             }}
           />
           <TouchableWithoutFeedback
