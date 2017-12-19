@@ -8,6 +8,7 @@ export default class MyModal extends React.Component {
     this.state = {
       isOpen: false,
       backOpacity: new Animated.Value(0),
+      watcher: new Animated.Value(0),
       isFinished: true,
       easingValue: new Animated.Value(0),
       pan: new Animated.ValueXY(),
@@ -104,6 +105,13 @@ export default class MyModal extends React.Component {
           useNativeDriver: true
         }
       ).start();
+        Animated.timing(
+          this.state.watcher,
+          {
+            toValue: 1,
+            duration: this.props.timeIn,
+          }
+        ).start();
       Animated.timing(
         this.state.pan,
         {
@@ -145,6 +153,13 @@ export default class MyModal extends React.Component {
         toValue: 0,
         duration: this.props.timeOut === null ? this.props.timeIn : this.props.timeOut,
         useNativeDriver: true
+      }
+    ).start();
+    Animated.timing(
+    this.state.watcher,
+      {
+        toValue: 0,
+        duration: this.props.timeOut === null ? this.props.timeIn : this.props.timeOut,
       }
     ).start();
     const duration = this.props.timeOut === null ? this.props.timeIn : this.props.timeOut;
@@ -237,12 +252,16 @@ export default class MyModal extends React.Component {
       <Modal
         animationType={'none'}
         transparent={true}
-        visible={this.state.isOpen}
+        visible={true}
         onRequestClose={this.backPressed}
       >
-        <View
+        <Animated.View
           style={{
             flex: 1,
+            opacity: this.state.watcher.interpolate({
+              inputRange: [0, 0.01, 1],
+              outputRange: [0, 1, 1]
+            })
           }}
         >
           <Animated.View
@@ -293,7 +312,7 @@ export default class MyModal extends React.Component {
           >
             <View style={{ flex: 1 - positionY }} />
           </TouchableWithoutFeedback>
-        </View>
+        </Animated.View>
       </Modal>
     );
   }
